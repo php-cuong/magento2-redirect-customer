@@ -28,7 +28,7 @@ composer require phpcuong/magento2-redirect-customer
 
 ```
 
-###2 - Enable FAQ extension
+###2 - Enable Extension
  * php bin/magento module:enable PHPCuong_RedirectCustomer
  * php bin/magento setup:upgrade
  * php bin/magento setup:static-content:deploy
