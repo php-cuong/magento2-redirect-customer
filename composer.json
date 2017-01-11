@@ -6,7 +6,7 @@
         "Redirect Customer",
         "Customer Login",
         "Redirect Customer to the particular page after Logging in successful",
-        "FAQ Extension Free"
+        "Magento 2 Extension Free"
     ],
     "require": {
         "php": "~5.6.0|7.0.2|~7.0.6",
