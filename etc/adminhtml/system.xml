@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="customer" translate="label" sortOrder="300">
+            <label>Customers</label>
+        </tab>
+        <section id="customer" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>customer</tab>
+            <resource>Magento_Customer::config_customer</resource>
+            <group id="startup" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="redirect_particular_page" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Redirect Customer to the particular page after Logging in successful</label>
+                    <comment>Leave empty if you want Customer to stay on the current page.</comment>
+                    <validate>validate-url</validate>
+                    <depends>
+                        <field id="redirect_dashboard">0</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
