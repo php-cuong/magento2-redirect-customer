@@ -45,3 +45,5 @@ When complete, tap Save Config.
 
 ###4 - Clear all the cache
 * php bin/magento cache:clean
+
+###5 - Test and see results
