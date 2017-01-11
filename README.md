@@ -1,5 +1,5 @@
 # Magento 2 Redirect Customer to the particular page after Logging in successful
-This is an awesome module, Admin can set redirect Customer to the particular page after Logging in successful
+This is an awesome module, It allows Admin redirect Customer to the particular page after Logging in successful
 
 ##Features of this extension:
 
