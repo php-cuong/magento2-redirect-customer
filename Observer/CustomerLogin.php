@@ -5,7 +5,7 @@
  * @Author              Ngo Quang Cuong <bestearnmoney87@gmail.com>
  * @Date                2017-01-11 05:20:01
  * @Last modified by:   nquangcuong
- * @Last Modified time: 2017-01-11 06:50:43
+ * @Last Modified time: 2017-01-11 08:19:59
  */
 
 namespace PHPCuong\RedirectCustomer\Observer;
@@ -68,7 +68,6 @@ class CustomerLogin implements ObserverInterface
         if ($this->uri->isValid($particular_page)) {
             $resultRedirect = $this->responseFactory->create();
             $resultRedirect->setRedirect($particular_page)->sendResponse('200');
-            die();
         }
     }
 }
