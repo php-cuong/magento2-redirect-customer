@@ -47,3 +47,8 @@ When complete, tap Save Config.
 * php bin/magento cache:clean
 
 ###5 - Test and see results
+
+##ScreenShot
+
+![ScreenShot](https://github.com/php-cuong/magento2-redirect-customer/blob/master/Screenshot/screenshot.png?raw=true)
+
