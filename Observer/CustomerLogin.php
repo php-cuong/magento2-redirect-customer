@@ -5,7 +5,7 @@
  * @Author              Ngo Quang Cuong <bestearnmoney87@gmail.com>
  * @Date                2017-01-11 05:20:01
  * @Last modified by:   nquangcuong
- * @Last Modified time: 2017-01-11 09:54:32
+ * @Last Modified time: 2017-01-14 02:32:54
  */
 
 namespace PHPCuong\RedirectCustomer\Observer;
@@ -50,18 +50,18 @@ class CustomerLogin implements ObserverInterface
     }
 
     /**
-     * Handler for 'customer_register_success' event.
+     * Handler for 'customer_login' event.
      *
      * @param Observer $observer
      * @return void
      */
     public function execute(Observer $observer)
     {
-        $scope = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITES;
+        $websites = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITES;
 
-        $particular_page = $this->scopeConfig->getValue('customer/startup/redirect_particular_page', $scope);
+        $particular_page = $this->scopeConfig->getValue('customer/startup/redirect_particular_page', $websites);
 
-        if (empty($particular_page)) {
+        if ($particular_page == null) {
             $particular_page = $this->scopeConfig->getValue('customer/startup/redirect_particular_page');
         }
 
