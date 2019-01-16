@@ -65,14 +65,24 @@ class CustomerLogin implements \Magento\Framework\Event\ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $customPage = $this->scopeConfig->getValue(
-            'customer/startup/custom_page_for_redirecting',
+        $redirectDashboard = $this->scopeConfig->isSetFlag(
+            'customer/startup/redirect_dashboard',
             \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITES
         );
-        if (!empty($customPage) && $this->uri->isValid($customPage)) {
-            $resultRedirect = $this->responseFactory->create();
-            $resultRedirect->setRedirect($customPage)->sendResponse('200');
-            exit();
+
+        // if the Redirect Customer to Account Dashboard after Logging in set to "No"
+        if (!$redirectDashboard) {
+            $customPage = $this->scopeConfig->getValue(
+                'customer/startup/custom_page_for_redirecting',
+                \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITES
+            );
+            // If the custom page is set and it is a URL valid.
+            if (!empty($customPage) && $this->uri->isValid($customPage)) {
+                $resultRedirect = $this->responseFactory->create();
+                // Redirect to the custom page.
+                $resultRedirect->setRedirect($customPage)->sendResponse('200');
+                exit();
+            }
         }
     }
 }
