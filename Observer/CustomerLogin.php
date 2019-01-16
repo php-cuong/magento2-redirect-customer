@@ -1,19 +1,27 @@
 <?php
-
 /**
+ * GiaPhuGroup Co., Ltd.
  *
- * @Author              Ngo Quang Cuong <bestearnmoney87@gmail.com>
- * @Date                2017-01-11 05:20:01
- * @Last modified by:   nquangcuong
- * @Last Modified time: 2017-01-14 02:32:54
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_CustomerRedirecting
+ * @copyright   Copyright (c) 2019-2020 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
  */
 
-namespace PHPCuong\RedirectCustomer\Observer;
+namespace PHPCuong\CustomerRedirecting\Observer;
 
-use Magento\Framework\Event\Observer;
-use Magento\Framework\Event\ObserverInterface;
-
-class CustomerLogin implements ObserverInterface
+class CustomerLogin implements \Magento\Framework\Event\ObserverInterface
 {
     /**
      * Core store config
@@ -52,22 +60,18 @@ class CustomerLogin implements ObserverInterface
     /**
      * Handler for 'customer_login' event.
      *
-     * @param Observer $observer
+     * @param \Magento\Framework\Event\Observer $observer
      * @return void
      */
-    public function execute(Observer $observer)
+    public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $websites = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITES;
-
-        $particular_page = $this->scopeConfig->getValue('customer/startup/redirect_particular_page', $websites);
-
-        if ($particular_page == null) {
-            $particular_page = $this->scopeConfig->getValue('customer/startup/redirect_particular_page');
-        }
-
-        if ($this->uri->isValid($particular_page)) {
+        $customPage = $this->scopeConfig->getValue(
+            'customer/startup/custom_page_for_redirecting',
+            \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITES
+        );
+        if (!empty($customPage) && $this->uri->isValid($customPage)) {
             $resultRedirect = $this->responseFactory->create();
-            $resultRedirect->setRedirect($particular_page)->sendResponse('200');
+            $resultRedirect->setRedirect($customPage)->sendResponse('200');
             exit();
         }
     }

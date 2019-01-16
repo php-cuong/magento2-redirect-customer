@@ -1,15 +1,26 @@
 <?php
-
 /**
+ * GiaPhuGroup Co., Ltd.
  *
- * @Author              Ngo Quang Cuong <bestearnmoney87@gmail.com>
- * @Date                2017-01-11 05:00:57
- * @Last modified by:   nquangcuong
- * @Last Modified time: 2017-01-11 05:01:25
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_CustomerRedirecting
+ * @copyright   Copyright (c) 2019-2020 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
  */
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'PHPCuong_RedirectCustomer',
+    'PHPCuong_CustomerRedirecting',
     __DIR__
 );

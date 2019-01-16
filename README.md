@@ -1,57 +1,39 @@
-# Magento 2 Redirect Customer to the particular page after Logging in successfully
-This is an awesome module, It allows the Administration redirect the Customer to the particular page after Logging in successfully.
+# Magento 2 Redirect the customer to a custom page after logging in
+By default, Magento 2 provides us with a feature, that allows redirecting the customer to account dashboard after logging in, you can enable this feature by going to Stores → Settings → Configuration → Customers → Customer Configuration → Login Options
 
-##Features of this extension:
+Set the field named "Redirect Customer to Account Dashboard after Logging in" to Yes
 
-###Frontend:
-- Redirect Customer to the particular page after Logging in successfully
-- Apply to multi websites
+This feature is working perfectly, however, Magento 2 doesn't support to redirect the customer to a particular page after logging in, if your project requires to use this feature, today I show you the best codes to complete your task.
 
-###Backend:
-- Update the landing page and redirect Customer to this page after Logging in successfully
+So what will we do in this practice?
 
-##Introduction installation:
+1. We will create a new module called PHPCuong_CustomerRedirecting
+2. We will create an additional field saves the custom page in the configuration
+3. We will use the event named customer_login to redirect the customer to that custom page after logging in successfully
 
-###1 - Installation Magento 2 Redirect Customer
-#### Manual Installation
-Install Redirect Customer for Magento2
- * Download the extension
- * Unzip the file
- * Create a folder {Magento root}/app/code/PHPCuong/RedirectCustomer
- * Copy the content from the unzip folder
+Before doing this practice, you need to understand, How to use events and observers in Magento 2, if you don't watch the video about this lesson yet, you can watch it here http://bit.ly/2QwDfpL
 
+## Step 1: Declaring the new module called PHPCuong_CustomerRedirecting
+- Create the namespace PHPCuong in the path app\code
+- Create the module named CustomerRedirecting in the path app\code\PHPCuong
+- Create the file named registration.php in the path app\code\PHPCuong\CustomerRedirecting
+- Create the file named module.xml in the path app\code\PHPCuong\CustomerRedirecting\etc
 
-#####Using Composer
+## Step 2: Create an additional field saves the custom page in the configuration
+- Create the new file named system.xml in the path app\code\PHPCuong\CustomerRedirecting\etc\adminhtml
 
-```
-composer require phpcuong/magento2-redirect-customer
+## Step 3: Subscribing to the event named customer_login
+- Create the new file named events.xml in the path app\code\PHPCuong\CustomerRedirecting\etc\frontend
+- Create the new file named CustomerLogin.php in the path app\code\PHPCuong\CustomerRedirecting\Observer
 
-```
+## Step 4: Test and see the results
+1. Run the following command lines:
+php bin/magento setup:upgrade --keep-generated
 
-###2 - Enable Extension
- * php bin/magento module:enable PHPCuong_RedirectCustomer
- * php bin/magento setup:upgrade
- * php bin/magento setup:static-content:deploy
+2. Test the results
+Go to the Magento Admin Panel → Stores → Settings → Configuration → Customers → Customer Configuration → Login Options
+Set the custom page.
 
-###3 - Settings
-Log into your Magento Admin Panel, goto Stores -> Configuration -> Customers -> Customer Configuration
-
-Expand the Login Options section. Then, do the following:
-
-#### - To activate redirect Customer, set Redirect Customer to Account Dashboard after Logging in to “No.”
-#### - Type URL valid into the field Redirect Customer to the particular page after Logging in successful
-
-When complete, tap Save Config.
-
-###4 - Clear all the cache
-* php bin/magento cache:clean
-
-###5 - Test and see results
-
-##Video how to install and use this extension
-https://www.youtube.com/watch?v=nQQjRVp5rS0
-
-##ScreenShot
-
-![ScreenShot](https://github.com/php-cuong/magento2-redirect-customer/blob/master/Screenshot/screenshot.png?raw=true)
-
+## See the video about this tutorial
+1. Youtube:
+2. Facebook:

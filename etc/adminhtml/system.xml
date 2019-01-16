@@ -1,17 +1,32 @@
 <?xml version="1.0"?>
-
+<!--
+/**
+ * GiaPhuGroup Co., Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_CustomerRedirecting
+ * @copyright   Copyright (c) 2019-2020 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="customer" translate="label" sortOrder="300">
-            <label>Customers</label>
-        </tab>
         <section id="customer" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-            <tab>customer</tab>
-            <resource>Magento_Customer::config_customer</resource>
             <group id="startup" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
-                <field id="redirect_particular_page" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
-                    <label>Redirect Customer to the particular page after Logging in successful</label>
-                    <comment>Leave empty if you want Customer to stay on the current page.</comment>
+                <field id="custom_page_for_redirecting" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Redirect the Customer to a Custom Page after Logging in</label>
+                    <comment>The customer will stay on the current page if you leave empty.</comment>
                     <validate>validate-url</validate>
                     <depends>
                         <field id="redirect_dashboard">0</field>
