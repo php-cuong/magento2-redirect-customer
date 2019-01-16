@@ -35,5 +35,5 @@ Go to the Magento Admin Panel → Stores → Settings → Configuration → Cust
 Set the custom page.
 
 ## See the video about this tutorial
-1. Youtube:
-2. Facebook:
+1. Youtube: https://www.youtube.com/watch?v=oyPD3Jy17EA&list=PL98CDCbI3TNvPczWSOnpaMoyxVISLVzYQ&index=45
+2. Facebook: https://www.facebook.com/giaphugroupcom/videos/457967798069780/
